@@ -1,9 +1,9 @@
 # 🧠 Fine-Grained Emotion Classification (20 Classes)
 
 ## 📌 Deskripsi Proyek
-Proyek ini bertujuan untuk mengembangkan sistem klasifikasi teks yang mampu mengenali emosi dari kalimat berbahasa Inggris secara lebih rinci (fine-grained). Dataset yang digunakan memiliki 20 kategori emosi, sehingga model tidak hanya membedakan sentimen positif atau negatif, tetapi juga mampu menangkap emosi yang lebih spesifik seperti marah, sedih, cemas, dan lainnya.
+Proyek ini bertujuan membangun sistem klasifikasi teks yang mampu mengidentifikasi emosi dalam kalimat berbahasa Inggris secara lebih detail. Dataset yang digunakan mencakup 20 kategori emosi, sehingga model tidak hanya membedakan sentimen positif dan negatif, tetapi juga mengenali emosi spesifik seperti marah, sedih, cemas, dan lainnya.
 
-Dalam proyek ini akan dilakukan perbandingan dua pendekatan utama dalam Natural Language Processing (NLP), yaitu Machine Learning (ML) dan Deep Learning (DL), untuk mengetahui metode mana yang lebih efektif dalam memahami emosi pada teks.
+Selain itu, proyek ini membandingkan dua pendekatan utama dalam Natural Language Processing (NLP), yaitu Machine Learning (ML) dan Deep Learning (DL), untuk menentukan metode yang paling efektif dalam memahami emosi pada teks.
 
 ---
 
