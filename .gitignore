@@ -7,6 +7,8 @@ __pycache__/
 env/
 venv/
 ENV/
+.venv/
+
 build/
 develop-eggs/
 dist/
@@ -38,11 +40,10 @@ wheels/
 .DS_Store
 Thumbs.db
 
-# Data (optional - uncomment if you don't want to track large data files)
+# Data (optional)
 # data/raw/*.csv
 # data/processed/*.csv
 
-# Models (optional - uncomment if models are too large)
-# models/**/*.pkl
+# Models (OPTIONAL - tetap di-comment karena kamu mau push)
 # models/**/*.h5
-# models/**/*.pth
+# models/**/*.onnx

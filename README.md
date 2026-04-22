@@ -1,14 +1,16 @@
 # 🧠 Fine-Grained Emotion Classification (20 Classes)
 
 ## 🚀 Live Demo
-**Try the deployed model:** [Emotion Classification App on Hugging Face Spaces](https://huggingface.co/spaces/Arielva/pba2026-kelompok14)
+**Try the deployed model:**  
+[SVMC (Machine Learning) Emotion Classification App on Hugging Face Spaces](https://huggingface.co/spaces/Arielva/pba2026-kelompok14)
+[BiLSTM (Deep Learning) Emotion Classification App on Hugging Face Spaces](https://huggingface.co/spaces/Arielva/dl_pba2026-kelompok14)
 
 ---
 
 ## 📌 Deskripsi Proyek
 Proyek ini bertujuan membangun sistem klasifikasi teks yang mampu mengidentifikasi emosi dalam kalimat berbahasa Inggris secara lebih detail. Dataset yang digunakan mencakup 20 kategori emosi, sehingga model tidak hanya membedakan sentimen positif dan negatif, tetapi juga mengenali emosi spesifik seperti marah, sedih, cemas, dan lainnya.
 
-Selain itu, proyek ini membandingkan dua pendekatan utama dalam Natural Language Processing (NLP), yaitu Machine Learning (ML) dan Deep Learning (DL), untuk menentukan metode yang paling efektif dalam memahami emosi pada teks.
+Selain itu, proyek ini membandingkan dua pendekatan utama dalam Natural Language Processing (NLP), yaitu **Machine Learning (ML)** dan **Deep Learning (DL)**, untuk menentukan metode yang paling efektif dalam memahami emosi pada teks.
 
 ---
 
@@ -25,10 +27,10 @@ Selain itu, proyek ini membandingkan dua pendekatan utama dalam Natural Language
 ## 📊 Dataset
 Dataset yang digunakan adalah **20-Emotion Text Classification Dataset** yang berisi 79.595 kalimat dengan 20 label emosi yang berbeda.
 
-- Total data: 79,595
-- Jumlah kelas: 20 emosi
-- Bahasa: Inggris
-- Task: Multi-class text classification
+- Total data: 79,595  
+- Jumlah kelas: 20 emosi  
+- Bahasa: Inggris  
+- Task: Multi-class text classification  
 
 Contoh label emosi:
 - happiness, anger, sadness, fear, love, surprise, dan lainnya.
@@ -39,57 +41,77 @@ Contoh label emosi:
 
 ### 1. Machine Learning (ML)
 Pendekatan ML menggunakan scikit-learn dengan representasi fitur berbasis TF-IDF. Model yang telah dibenchmark:
-- **Logistic Regression** - Baseline model
-- **Naive Bayes (MultinomialNB)** - Specialized for text classification
-- **Support Vector Machine (LinearSVC)** -  Best model (selected)
+- Logistic Regression - Baseline model  
+- Naive Bayes (MultinomialNB) - Text classification  
+- Support Vector Machine (LinearSVC) - Best ML model (selected)  
 
-Model terbaik telah dipilih berdasarkan F1-Score dan di-deploy ke Hugging Face Spaces.
+---
 
 ### 2. Deep Learning (DL)
-Pendekatan DL akan menggunakan PyTorch dengan arsitektur seperti:
-- LSTM
-- Transformer sederhana
+Pendekatan Deep Learning menggunakan PyTorch dengan arsitektur:
 
-Model akan dilatih untuk memahami pola emosional dalam teks dengan tetap memperhatikan batasan jumlah parameter.
+- **BiLSTM (Bidirectional LSTM)**
+- **GRU**
+- **Transformer (baseline attention-based model)**
 
----
-
-## 🎯 Tujuan
-Tujuan utama dari proyek ini adalah:
-- Membandingkan performa Machine Learning dan Deep Learning dalam klasifikasi emosi
-- Mengidentifikasi model terbaik untuk menangani klasifikasi emosi dengan banyak kelas
-- Memberikan insight terhadap efektivitas masing-masing pendekatan dalam memahami teks
-
-## 📈 Hasil Evaluasi Model (Machine Learning)
-
-Berdasarkan hasil benchmarking terhadap tiga algoritma Machine Learning, model terbaik yang diperoleh adalah:
-
-🏆 **Support Vector Machine (LinearSVC)**  
-- **Accuracy:** 0.8811  
-- **Precision:** 0.8810  
-- **Recall:** 0.8811  
-- **F1-Score:** 0.8808  
-
-Perbandingan dengan model lain:
-- Logistic Regression → F1-Score: 0.8656  
-- Naive Bayes → F1-Score: 0.8381  
-
-### 📊 Insight Performa
-- Model SVM menunjukkan performa paling stabil di hampir semua kelas emosi.
-- Kategori dengan performa tinggi:
-  - **happiness** (F1 ≈ 0.97)
-  - **excitement** (F1 ≈ 0.96)
-  - **love, guilt, jealousy** (F1 > 0.93)
-- Kategori yang lebih sulit diprediksi:
-  - **frustration** (F1 ≈ 0.64)
-  - **sadness** (F1 ≈ 0.74)
-  - **anger & anxiety** (F1 ≈ 0.75)
-
-Hal ini menunjukkan bahwa emosi dengan nuansa negatif yang mirip cenderung lebih sulit dibedakan oleh model.
+Model dilatih untuk menangkap konteks emosional dalam teks menggunakan embedding layer dan sequence modeling.
 
 ---
 
-## 🧠 Kesimpulan Sementara (ML)
-Model **LinearSVC** dipilih sebagai model terbaik karena memberikan keseimbangan optimal antara akurasi dan generalisasi pada dataset multi-class dengan 20 kategori emosi.
+## 📈 Hasil Evaluasi Model
 
-Model ini kemudian digunakan untuk deployment pada Hugging Face Spaces sebagai baseline sebelum dibandingkan dengan pendekatan Deep Learning.
+### 🧠 Deep Learning Results
+
+#### 🔹 BiLSTM
+- **Accuracy:** 0.89  
+- **Macro F1:** 0.88  
+- **Weighted F1:** 0.89  
+- **Training Time:** 5m 53s  
+
+#### 🔹 GRU
+- **Accuracy:** 0.88  
+- **Macro F1:** 0.88  
+- **Weighted F1:** 0.88  
+- **Training Time:** 7m 09s  
+
+#### 🔹 Transformer
+- **Accuracy:** 0.87  
+- **Macro F1:** 0.86  
+- **Weighted F1:** 0.87  
+- **Training Time:** 11m 09s  
+
+---
+
+### 📊 Insight Performa Deep Learning
+- **BiLSTM menjadi model terbaik** dalam eksperimen ini.
+- GRU memberikan performa yang sangat dekat tetapi tidak mengungguli BiLSTM.
+- Transformer memiliki performa lebih rendah pada dataset ini, kemungkinan karena:
+  - Data belum cukup besar untuk memaksimalkan attention mechanism
+  - Hyperparameter belum optimal
+
+---
+
+## 🏆 Perbandingan Model Keseluruhan
+
+| Model        | Accuracy | F1-Score | Training Time |
+|--------------|----------|----------|--------------|
+| SVM (LinearSVC) | 0.8811 | 0.8808 | - |
+| Logistic Regression | 0.8656 | - | - |
+| Naive Bayes | 0.8381 | - | - |
+| **BiLSTM** | **0.89** | **0.89** | **5m 53s** |
+| GRU | 0.88 | 0.88 | 7m 09s |
+| Transformer | 0.87 | 0.86 | 11m 09s |
+
+---
+
+## 🧠 Kesimpulan Akhir
+
+- **BiLSTM adalah model terbaik secara keseluruhan**
+- Deep Learning mengungguli Machine Learning dalam akurasi dan representasi konteks
+- Namun, ML (SVM) tetap kompetitif dengan training yang lebih ringan
+- Transformer membutuhkan tuning lebih lanjut untuk dataset ini
+
+👉 Kesimpulan utama:  
+**BiLSTM memberikan keseimbangan terbaik antara akurasi, stabilitas, dan efisiensi komputasi**
+
+---
