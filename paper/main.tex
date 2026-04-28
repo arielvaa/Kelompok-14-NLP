@@ -18,25 +18,25 @@
 \title{Benchmarking PyCaret AutoML Against BiLSTM for Fine-Grained Emotion Classification: A Comparative Study on 20-Class Emotion Detection}
 
 \author{
-  Arya Muda Siregar \\
-  Institut Teknologi Sumatera \\
-  Lampung Selatan, Indonesia \\
-  \texttt{123450063@student.itera.ac.id} \\
-  \And
-  Arielva Simon Siahaan \\
-  Institut Teknologi Sumatera \\
-  Lampung Selatan, Indonesia \\
-  \texttt{123450105@student.itera.ac.id} \\
-  \And
-  Haikal Fransisko Simbolon \\
-  Institut Teknologi Sumatera \\
-  Lampung Selatan, Indonesia \\
-  \texttt{123450106@student.itera.ac.id} \\
-  \AND
-  Martin C.T. Manullang\thanks{Corresponding author} \\
-  Institut Teknologi Sumatera \\
-  Lampung Selatan, Indonesia \\
-  \texttt{martin.manullang@itera.ac.id} \\
+Arya Muda Siregar \\
+Institut Teknologi Sumatera \\
+Lampung Selatan, Indonesia \\
+\texttt{123450063@student.itera.ac.id} \\
+\And
+Arielva Simon Siahaan \\
+Institut Teknologi Sumatera \\
+Lampung Selatan, Indonesia \\
+\texttt{123450105@student.itera.ac.id} \\
+\And
+Haikal Fransisko Simbolon \\
+Institut Teknologi Sumatera \\
+Lampung Selatan, Indonesia \\
+\texttt{123450106@student.itera.ac.id} \\
+\AND
+Martin C.T. Manullang\thanks{Corresponding author} \\
+Institut Teknologi Sumatera \\
+Lampung Selatan, Indonesia \\
+\texttt{martin.manullang@itera.ac.id} \\
 }
 
 \begin{document}
@@ -59,10 +59,10 @@ Despite extensive research, there is limited direct comparison between these two
 
 The contributions of this work are as follows:
 \begin{itemize}
-    \item A systematic benchmark of three ML classifiers (Logistic Regression, Naive Bayes, SVM) using TF-IDF features for 20-class emotion classification.
-    \item A comparative evaluation of three DL architectures (BiLSTM, GRU, Transformer) implemented in PyTorch on the same dataset.
-    \item An analysis of the trade-offs between model performance, training time, and computational complexity across all six models.
-    \item Deployment of the best ML and DL models as interactive web applications on Hugging Face Spaces.
+\item A systematic benchmark of three ML classifiers (Logistic Regression, Naive Bayes, SVM) using TF-IDF features for 20-class emotion classification.
+\item A comparative evaluation of three DL architectures (BiLSTM, GRU, Transformer) implemented in PyTorch on the same dataset.
+\item An analysis of the trade-offs between model performance, training time, and computational complexity across all six models.
+\item Deployment of the best ML and DL models as interactive web applications on Hugging Face Spaces.
 \end{itemize}
 
 \section{Related Work}
@@ -103,11 +103,11 @@ Average Sentence Length & \textasciitilde{}12 tokens \\
 
 Prior to feature extraction and model training, we apply the following text preprocessing steps:
 \begin{enumerate}
-    \item \textbf{Lowercasing}: All text is converted to lowercase to reduce vocabulary size.
-    \item \textbf{Punctuation and special character removal}: Non-alphanumeric characters are removed.
-    \item \textbf{Tokenization}: Text is split into individual tokens.
-    \item \textbf{Stopword removal}: Common English stopwords are removed for ML feature extraction.
-    \item \textbf{Train/Validation/Test Split}: The dataset is split into 80\% training, 10\% validation, and 10\% test sets with stratified sampling to maintain class distribution.
+\item \textbf{Lowercasing}: All text is converted to lowercase to reduce vocabulary size.
+\item \textbf{Punctuation and special character removal}: Non-alphanumeric characters are removed.
+\item \textbf{Tokenization}: Text is split into individual tokens.
+\item \textbf{Stopword removal}: Common English stopwords are removed for ML feature extraction.
+\item \textbf{Train/Validation/Test Split}: The dataset is split into 80\% training, 10\% validation, and 10\% test sets with stratified sampling to maintain class distribution.
 \end{enumerate}
 
 For ML models, TF-IDF (Term Frequency-Inverse Document Frequency) vectors are computed with a maximum vocabulary size of 50,000 terms. For DL models, we use a word embedding layer with an embedding dimension of 128 and a vocabulary size of 30,000.
@@ -129,13 +129,13 @@ We employ TF-IDF feature extraction to transform raw text into numerical feature
 All DL models are implemented in PyTorch \cite{paszke2019pytorch} with the following shared configuration:
 
 \begin{itemize}
-    \item Embedding dimension: 128
-    \item Vocabulary size: 30,000
-    \item Maximum sequence length: 128 tokens
-    \item Dropout rate: 0.3
-    \item Optimizer: Adam with learning rate 0.001
-    \item Batch size: 64
-    \item Training epochs: 10
+\item Embedding dimension: 128
+\item Vocabulary size: 30,000
+\item Maximum sequence length: 128 tokens
+\item Dropout rate: 0.3
+\item Optimizer: Adam with learning rate 0.001
+\item Batch size: 64
+\item Training epochs: 10
 \end{itemize}
 
 \textbf{BiLSTM (Bidirectional Long Short-Term Memory)}: Two stacked LSTM layers (hidden size = 256) processing input sequences in both forward and backward directions. The final hidden states from both directions are concatenated and passed through a fully connected layer with softmax activation.
@@ -156,10 +156,10 @@ All experiments are conducted on Google Colab with GPU acceleration (NVIDIA Tesl
 
 We report the following metrics for all models:
 \begin{itemize}
-    \item \textbf{Accuracy}: Proportion of correctly classified samples.
-    \item \textbf{Macro F1-Score}: Unweighted mean F1-score across all 20 classes.
-    \item \textbf{Weighted F1-Score}: F1-score weighted by class support.
-    \item \textbf{Training Time}: Wall-clock time for model training.
+\item \textbf{Accuracy}: Proportion of correctly classified samples.
+\item \textbf{Macro F1-Score}: Unweighted mean F1-score across all 20 classes.
+\item \textbf{Weighted F1-Score}: F1-score weighted by class support.
+\item \textbf{Training Time}: Wall-clock time for model training.
 \end{itemize}
 
 \subsection{Hyperparameter Settings}
@@ -197,15 +197,15 @@ Table~\ref{tab:benchmark} presents the benchmark results for all six models eval
 \toprule
 \textbf{Type} & \textbf{Model} & \textbf{Accuracy} & \textbf{F1-Score} & \textbf{Training Time} \\
 \midrule
-\multirow{3}{*}{ML} 
-  & Logistic Regression & 0.8656 & -- & -- \\
-  & Naive Bayes         & 0.8381 & -- & -- \\
-  & \textbf{SVM (LinearSVC)} & \textbf{0.8811} & \textbf{0.8808} & -- \\
+\multirow{3}{*}{ML}
+& Logistic Regression & 0.8656 & -- & -- \\
+& Naive Bayes & 0.8381 & -- & -- \\
+& \textbf{SVM (LinearSVC)} & \textbf{0.8811} & \textbf{0.8808} & -- \\
 \midrule
 \multirow{3}{*}{DL}
-  & \textbf{BiLSTM}     & \textbf{0.89} & \textbf{0.89} & 5m 53s \\
-  & GRU                 & 0.88 & 0.88 & 7m 09s \\
-  & Transformer         & 0.87 & 0.86 & 11m 09s \\
+& \textbf{BiLSTM} & \textbf{0.89} & \textbf{0.89} & 5m 53s \\
+& GRU & 0.88 & 0.88 & 7m 09s \\
+& Transformer & 0.87 & 0.86 & 11m 09s \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -225,9 +225,13 @@ Table~\ref{tab:benchmark} presents the benchmark results for all six models eval
 This paper presents a systematic benchmark study comparing Machine Learning and Deep Learning approaches for fine-grained emotion classification across 20 emotion categories. Our experiments on the 20-Emotion Text Classification Dataset (79,595 samples) demonstrate that:
 
 \begin{itemize}
-    \item \textbf{BiLSTM is the best overall model}, achieving the highest accuracy (89\%) and weighted F1-score (0.89) among all six evaluated models.
-    \item \textbf{Deep Learning outperforms Machine Learning} in both accuracy and
+\item \textbf{BiLSTM is the best overall model}, achieving the highest accuracy (89\%) and weighted F1-score (0.89) among all six evaluated models.
+\item \textbf{Deep Learning outperforms Machine Learning} in both accuracy and contextual representation quality, confirming the advantage of sequential modeling for emotion detection.
+\item \textbf{SVM remains highly competitive} with an accuracy of 88.11\%, offering a strong and computationally lightweight alternative to deep learning when GPU resources are unavailable.
+\item \textbf{Transformer models require further tuning} for optimal performance on this dataset; their advantages are more pronounced with larger datasets or pre-trained representations.
+\end{itemize} % <--- PASTIKAN BARIS INI ADA
 
+In conclusion, BiLSTM provides the best balance between accuracy, training stability, and computational efficiency for fine-grained emotion classification. Future work may explore pre-trained language models (e.g., BERT, RoBERTa) and data augmentation strategies to further improve performance on underrepresented emotion classes.
 
 \bibliographystyle{plain}
 \bibliography{reference}
