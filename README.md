@@ -4,6 +4,7 @@
 **Try the deployed model:**  
 - [SVMC (Machine Learning) Emotion Classification App on Hugging Face Spaces](https://huggingface.co/spaces/Arielva/pba2026-kelompok14)
 - [BiLSTM (Deep Learning) Emotion Classification App on Hugging Face Spaces](https://huggingface.co/spaces/Arielva/dl_pba2026-kelompok14)
+- Link Paper (https://arxiv.org/abs/2604.26310)
 
 ---
 
